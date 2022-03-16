@@ -17,8 +17,9 @@ namespace DemoApp.WebHost
 
         public App()
         {
-            WebHostParameters.ServerIpEndpoint = new IPEndPoint(NetworkHelper.GetIpAddress(), 5000);
-            
+            //WebHostParameters.ServerIpEndpoint = new IPEndPoint(NetworkHelper.GetIpAddress(), 5000);
+            WebHostParameters.ServerIpEndpoint = new IPEndPoint(new IPAddress(new byte[] { 127,0,0,1}), 5000);
+
             InitializeComponent();
             MainPage = new MainPage();
 
