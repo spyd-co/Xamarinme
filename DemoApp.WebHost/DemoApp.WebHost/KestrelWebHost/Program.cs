@@ -30,11 +30,19 @@ namespace DemoApp.WebHost.KestrelWebHost
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<IHostLifetime, ConsoleLifetimePatch>();
+                    services.AddCors(o => o.AddPolicy("AllowAny", builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    }));
+                    services.AddMvc().AddControllersAsServices();
                 })
                 .UseKestrel(options =>
                 {
                     options.Listen(webHostParameters.ServerIpEndpoint);
                 })
+                //.UseContentRoot(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"))
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();

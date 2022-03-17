@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,9 @@ namespace DemoApp.WebHost.KestrelWebHost
 
         public void Configure(IApplicationBuilder app)
         {
-            app.Run(WebApp.OnHttpRequest);
+            app.UseCors("AllowAny");
+            app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
     }
 }

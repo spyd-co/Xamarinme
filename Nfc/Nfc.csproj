@@ -48,7 +48,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="NdefLibrary" Version="4.1.0" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+		<PackageReference Include="PCSC.Iso7816" Version="6.0.0" />
+		<PackageReference Include="PCSC.Reactive" Version="6.0.0" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
 	</ItemGroup>
 
 
